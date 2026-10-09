@@ -45,20 +45,36 @@ static partial class Program
     /// <summary>Remet le jeu dans son état de départ.</summary>
     static void Reinitialiser()
     {
+        positionRaquette.X = (LARGEUR / 2f) - (LARGEUR_RAQUETTE / 2f);
+        positionRaquette.Y = HAUTEUR - MARGE_BAS_RAQUETTE - HAUTEUR_RAQUETTE;
+
     }
 
     /// <summary>Une image de jeu dans l'état Attente.</summary>
     static void MettreAJourAttente(float dt)
     {
+        DeplacerRaquette(dt);
+        CollerBalleARaquette();
+
+        if (Raylib.IsKeyPressed(KeyboardKey.Space))
+        {
+            LancerBalle();
+            etat = EtatJeu.Jeu;
+        }
+
+
     }
 
     /// <summary>Une image de jeu dans l'état Jeu.</summary>
     static void MettreAJourJeu(float dt)
     {
-    }
+        DeplacerBalle(dt);
+        RebondirSurMurs();
 
-    /// <summary>Une image de jeu dans les états Perdu et Gagne.</summary>
-    static void MettreAJourFin()
-    {
     }
+        /// <summary>Une image de jeu dans les états Perdu et Gagne.</summary>
+        static void MettreAJourFin()
+        {
+        }
+
 }

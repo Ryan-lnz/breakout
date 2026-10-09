@@ -19,6 +19,9 @@ static partial class Program
     const int HAUTEUR = 600;
 
     // Raquette
+
+    
+
     const float LARGEUR_RAQUETTE = 100;
     const float HAUTEUR_RAQUETTE = 15;
     const float MARGE_BAS_RAQUETTE = 40;   // espace entre le bas de la raquette et le bas de la fenêtre
